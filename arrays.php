@@ -11,7 +11,7 @@
 // $arr = []
 // $car_names = array('Mercedes', 'BMW', 'Audi');
 
-// 				0			1		2    // index = position - 1;
+// 					0			1		2    // index = position - 1;
 // $car_names = ['Mercedes', 'BMW', 'Audi'];
 
 // echo $car_names[2];
