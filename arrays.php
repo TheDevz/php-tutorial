@@ -128,30 +128,152 @@ krsort($animals);
 var_dump($animals);
 
 ## Filter, reduce, map of an array
+
+// array_map
+
 function multiply_on_itself($array_element) {
 	return $array_element * $array_element;
 }
 
+$numbers = [2, 3, 4, 5];
+$numbers = [0 => 2, 1 => 3, 2 => 4, 3 => 5]; // associative
+
+$mapped_array = array_map('multiply_on_itself', $numbers);
+echo "<br>";
+var_dump($mapped_array);
+
+// array_filter
+
+function isOdd($number) {
+	return $number % 2 !== 0;
+}
+
+$oddNumbers = array_filter($numbers, 'isOdd');
+
+echo "<br>";
+var_dump($oddNumbers);
+
 /* http://php.net/manual/en/ref.array.php */
 
-# Associative arrays
+# Associative arrays[consists of key => value pairs]
 
 // create an associative array
 
+$studentsInformation = [
+	"9100" => [
+		'name' => 'Alex',
+		'age' => 19,
+		'address' => [
+			'city' => 'Tashkent',
+			'country' => 'Uzbekistan',
+		],
+	],
+
+	"9102" => [
+		'name' => 'Alex',
+		'age' => 19,
+		'address' => [
+			'city' => 'Tashkent',
+			'country' => 'Uzbekistan',
+		],
+	],
+
+	"9099" => [
+		'name' => 'Alex',
+		'age' => 19,
+		'address' => [
+			'city' => 'Tashkent',
+			'country' => 'Uzbekistan',
+		],
+	],
+];
+
+$uni_class = [
+	'name' => 'B.Sc.(IT)',
+	'students' => $studentsInformation,
+];
+
+echo "<hr><br>Associative array<br>";
+var_dump($uni_class);
+
 // get element by key
+echo "<br>Class name: " . $uni_class['name'];
+echo "<br>Students count: " . count($uni_class['students']);
+echo "<br>Student name under 9099: " . $uni_class['students']['9099']['name'];
+
+// # If you have the following array, how do you extract the value 3 from the array?
+// $a = array(
+// 	"a" => array(
+// 		"b" => 0,
+// 		"c" => 1,
+// 	),
+// 	"b" => array(
+// 		"e" => 2,
+// 		"o" => array(
+// 			"b" => 3,
+// 		),
+// 	),
+// );
+// echo "<br>" . $a['b']['o']['b'];
 
 // set element by key
+$uni_class['students']['9099']['name'] = 'John';
+$uni_class['students']['9099']['age'] = 23;
+$uni_class['students']['9099']['address']['city'] = 'Moscow';
+$uni_class['students']['9099']['address']['country'] = 'Russia';
+
+$uni_class['students']['9100'] = [
+	'name' => 'David',
+	'age' => 15,
+	'address' => [
+		'appartment' => 29,
+		'street' => 'Alisher Navoi',
+		'city' => 'Angren',
+		'country' => 'Uzbekistan',
+	],
+	'graduated_school' => 17,
+];
+
+echo "<br>";
+var_dump($uni_class);
 
 // check if array has specific key
+// $uni_class['students']['8000'] = [];
+echo "<br>Is enrollment number 8000 available in this class? Answer: ";
+var_dump(array_key_exists('8000', $uni_class['students']));
 
 // print the keys of an array
+echo "<br>All the keys of \$uni_class: ";
+foreach ($uni_class['students'] as $key => $value) {
+	echo "<br>" . $key;
+}
+
+$keys_of_array = array_keys($uni_class['students']);
+echo "<br>";
+// var_dump($keys_of_array);
+foreach ($keys_of_array as $value) {
+	echo "<br>" . $value;
+}
 
 // print the values of an array
+echo "<br>All the values of \$uni_class: ";
+foreach ($uni_class['students'] as $enrollment_number => $student_detail) {
+	echo "<br>";
+	var_dump($student_detail);
+}
 
 // sorting associative arrays by values, by keys
+echo "<br>";
+arsort($uni_class['students']);
+var_dump($uni_class['students']);
 
 # Two dimensional arrays
-
+$two_dim_arr = [
+	[1, 2, ['a', 'b', 'c', ['1', 2]]],
+	[3, 4],
+	[5, 6],
+];
+echo "<br>" . $two_dim_arr[0][2][3][1];
 /*------------------------------------------------------------*/
 
 # Array is collection of different data elements(... types)
