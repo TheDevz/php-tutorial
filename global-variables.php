@@ -21,6 +21,27 @@
 
 # $_SERVER
 
-echo "<pre>";
-var_dump($_SERVER);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($_SERVER);
+// echo "</pre>";
+
+# $_GET
+// echo "<pre>";
+// var_dump($_GET);
+// echo "</pre>";
+
+# $_POST
+// echo "<pre>";
+// var_dump($_POST);
+// echo "</pre>";
+
+# $_REQUEST
+// echo "<pre>";
+// var_dump($_REQUEST);
+// echo "</pre>";
+
+?>
+<form method="post">
+	<input type="text" name="q">
+	<button type="submit">Search</button>
+</form>
