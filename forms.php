@@ -12,7 +12,8 @@
 	<body>
 		<div class="container">
 			<div class="row justify-content-center" style="margin-top: 200px">
-				<div class="col-6">
+				<div class="col-10 col-md-6 card card-body">
+					<h1 class="text-center">Sign in</h1>
 					<form action="server.php" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email address</label>
