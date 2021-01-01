@@ -1,0 +1,3 @@
+
+PHP = PHP Hypertext Preprocessor
+SQL = Structured Query Language
