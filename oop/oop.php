@@ -11,6 +11,7 @@ class Car {
         echo "Starting engine...";
     }
 }
+
 //single level inheritance
 class BMWCar/*child class*/ extends Car/*parent class*/ {
     /* override function */
@@ -24,7 +25,7 @@ class Wheel {
 }
 
 
-//$car = new Car();// instance declaring an instance of Car
+//$car = new Car();// declaration of an instance of Car
 //$bmw = new BMWCar(/*$name='BMW', $wheels=4, $year=2019, $position=2*/);// declaring an instance(object) of Car
 //$mercedes = new Car();// instance declaring an instance of Car
 //
