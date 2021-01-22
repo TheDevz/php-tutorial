@@ -70,3 +70,4 @@ echo $apple->name . PHP_EOL;
 echo $apple->get_property('color') . PHP_EOL;
 //echo $apple->get_property('weight'); // throws an error
 //echo $apple->get_weight(); // throws an error
+echo $apple->get_weight();
